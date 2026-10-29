@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flow-root;
+	margin: 0;
+	min-height: 100vh;
+	background: var(--color-background);
+	color: var(--color-text);
+	font-family: "Segoe UI", system-ui, sans-serif;
+	line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+:focus-visible {
+	outline: 3px solid var(--color-warm);
+	outline-offset: 4px;
+}

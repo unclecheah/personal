@@ -1,0 +1,55 @@
+.site-shell {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: min(100% - 2rem, 75rem);
+	min-height: calc(100svh - 2rem);
+	margin: 1rem auto;
+}
+
+.skip-link {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 10;
+	padding: 0.75rem 1rem;
+	border-radius: 0.5rem;
+	background: var(--color-surface);
+	color: var(--color-text);
+	text-decoration: none;
+	transform: translateY(calc(-100% - 2rem));
+
+	&:focus {
+		transform: translateY(0);
+	}
+}
+
+.site-intro {
+	padding: clamp(1.5rem, 5vw, 4rem);
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: 1.25rem;
+
+	&__eyebrow {
+		margin: 0 0 1.25rem;
+		color: var(--color-accent);
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: clamp(2.5rem, 6vw, 5rem);
+		line-height: 1.1;
+		letter-spacing: -0.035em;
+		overflow-wrap: anywhere;
+	}
+
+	&__tagline {
+		margin: 1.25rem 0 0;
+		color: var(--color-muted);
+		font-size: clamp(1rem, 2vw, 1.5rem);
+	}
+}
