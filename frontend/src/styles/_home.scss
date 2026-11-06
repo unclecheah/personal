@@ -1,0 +1,37 @@
+.home-page {
+	display: grid;
+	gap: clamp(2rem, 4vw, 3rem);
+
+	&__sections {
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+		gap: clamp(2rem, 4vw, 3rem);
+	}
+}
+
+.home-section {
+	min-width: 0;
+
+	&__title {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin: 0 0 1.5rem;
+		font-size: 1.35rem;
+		line-height: 1.4;
+
+		&::after {
+			content: "";
+			flex: 1;
+			min-width: 1rem;
+			height: 1px;
+			background: var(--color-border);
+		}
+	}
+
+	&__empty { color: var(--color-muted); }
+}
+
+@media (max-width: 60rem) {
+	.home-page__sections { grid-template-columns: minmax(0, 1fr); }
+}
