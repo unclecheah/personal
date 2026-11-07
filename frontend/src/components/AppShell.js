@@ -1,7 +1,6 @@
 import $ from "jquery";
 import { SiteHeader } from "./SiteHeader.js";
 import { SiteFooter } from "./SiteFooter.js";
-import { HomePage } from "../pages/HomePage.js";
 
 
 export class AppShell {
@@ -9,7 +8,7 @@ export class AppShell {
 		this.config = config;
 		this.header = new SiteHeader(config);
 		this.footer = new SiteFooter(config);
-		this.homePage = new HomePage (config);
+		this.outlet = null;
 	}
 
 	render() {
@@ -30,7 +29,11 @@ export class AppShell {
 	}
 
 	createMain() {
-		return $("<main>", { id: "main-content", tabindex: -1 })
-			.append(this.homePage.render());
+		this.outlet = $("<main>", { id: "main-content", tabindex: -1 })[0];
+		return this.outlet;
+	}
+
+	getOutlet() {
+		return this.outlet;
 	}
 }

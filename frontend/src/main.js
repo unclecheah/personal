@@ -8,4 +8,4 @@ const app = new AppController({
 	config: SiteConfig
 });
 
-app.start();
+await app.start();

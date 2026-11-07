@@ -3,17 +3,20 @@ import $ from "jquery";
 export class SiteHeader {
 	constructor(config) {
 		this.config = config;
+		this.element = null;
 	}
 
 	render() {
-		return $("<header>", { class: "site-header" })
+		this.element = $("<header>", { class: "site-header" })
 			.append(this.createBrand(), this.createNavigation())[0];
+		return this.element;
 	}
 
 	createBrand() {
 		return $("<a>", {
 			class: "site-header__brand",
-			href: "#top",
+			href: "#/",
+			"data-route": "/",
 			text: this.config.siteName
 		});
 	}
@@ -36,11 +39,22 @@ export class SiteHeader {
 		});
 
 		if (item.href) {
-			$label.attr("href", item.href);
+			$label.attr({ href: item.href, "data-route": item.route });
 		} else {
 			$label.attr("aria-disabled", "true");
 		}
 
 		return $("<li>").append($label);
+	}
+
+	setActive(path) {
+		if (!this.element) return;
+		for (const link of this.element.querySelectorAll("[data-route]")) {
+			if (link.dataset.route === path) {
+				link.setAttribute("aria-current", "page");
+			} else {
+				link.removeAttribute("aria-current");
+			}
+		}
 	}
 }

@@ -1,0 +1,24 @@
+.content-page {
+	display: grid;
+	gap: clamp(2rem, 5vw, 4rem);
+	width: min(100%, 62rem);
+	margin-inline: auto;
+	padding-block: clamp(1rem, 4vw, 3rem);
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+}
+
+.info-card--wide {
+	display: grid;
+	grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.3fr);
+	gap: 0.5rem 2rem;
+}
+
+@media (max-width: 48rem) {
+	.content-page__grid { grid-template-columns: minmax(0, 1fr); }
+	.info-card--wide { grid-template-columns: minmax(0, 1fr); }
+}

@@ -35,6 +35,11 @@
 		&[aria-disabled="true"] {
 			color: var(--color-muted);
 		}
+
+		&[aria-current="page"] {
+			background: var(--color-surface);
+			color: var(--color-accent);
+		}
 	}
 
 	a:hover {
